@@ -46,17 +46,20 @@ namespace CookBookMVC.Application.Services
 
         public void DeleteIngredient(int ingredientId)
         {
-            throw new NotImplementedException();
+           _ingredientRepository.DeleteIngredient(ingredientId);
         }
 
         public void EditIngredient(IngredientVm ingredient)
         {
-            throw new NotImplementedException();
+            var ing = _mapper.Map<Ingredient>(ingredient);
+            _ingredientRepository.EditIngredient(ing);
         }
 
         public IngredientVm GetIngredientById(int id)
         {
-            throw new NotImplementedException();
+            var ing = _ingredientRepository.GetIngredientById(id);
+            var ingVm = _mapper.Map<IngredientVm>(ing);
+            return ingVm;
         }
     }
 }
